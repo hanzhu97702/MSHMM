@@ -6,6 +6,13 @@ A real global methane (CH₄) point source observation dataset constructed from 
 
 The raw hyperspectral remote sensing imagery used to construct the dataset includes Level-1 radiance products from 4 platforms: EMIT, EnMAP, PRISMA and GF-5.
 
+If you need this raw data, you can obtain it through their portal website:
+
+- EMIT: [search.earthdata.nasa.gov](https://search.earthdata.nasa.gov/)
+- EnMAP: [www.enmap.org/data_access](https://www.enmap.org/data_access/)
+- PRISMA: [prisma.asi.it](https://prisma.asi.it/)
+- GF-5/5A/5B: [www.sasclouds.com/chinese/normal](https://www.sasclouds.com/chinese/normal/)
+
 Imagery products are stored in NumPy format, while methane emission catalog product is managed in XLSX format.
 
 The total size of this dataset is about 10.5GB, comprising:
@@ -83,7 +90,10 @@ All records have the same size and can be read directly with `numpy.load()`. `RG
 | `1650.npy`       | (512, 512)    | uint16  | Single-band image at ~1650 nm,                           |
 | `1730.npy`       | (512, 512)    | uint16  | Single-band image at ~1730 nm,                           |
 
-> For single-band image, GF5 is stored as a float32, but the value is still in uint16. Please read it as uint16.
+> Known early version bugs:
+>
+> 1. For single-band image, GF5 is stored as a float32, but the value is still in uint16. Please read it as uint16.
+> 2. the EMIT data in batch0\output is not scaled by 1000 times; it needs to be multiplied by 1000 during post-processing when reading.
 
 ### Plume quantitative summary (`sum.json`, emission records only)
 
@@ -124,5 +134,3 @@ Each row corresponds to one record in the package. Fields:
 | `length`         | str   | String representation of a list of plume segment lengths, e.g.`"[907.26, 1016.83, …]"`; parse with `ast.literal_eval` / `json` | m; plume only                                                                     |
 | `wind`           | float | GEOS-FP wind speed                                                                                                                    | m/s; plume only                                                                   |
 | `wind_direction` | float | GEOS-FP wind direction                                                                                                                | °; plume only                                                                    |
-
----
