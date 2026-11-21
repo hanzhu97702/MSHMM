@@ -29,6 +29,12 @@ The total size of this dataset is about 10.5GB, comprising:
 
 ---
 
+## Download Link
+
+[10.5281/zenodo.22608487](https://doi.org/10.5281/zenodo.22608487)
+
+---
+
 ## Data Items
 
 ### Folders
