@@ -17,3 +17,18 @@ def summarize_flux(catalog: pd.DataFrame, by: str) -> pd.DataFrame:
     """Describe available Q values for plume records, in kg/h."""
     plumes = catalog.loc[catalog["is_plume"]]
     return plumes.groupby(by)["Q"].describe()
+
+
+def summarize_sites(catalog: pd.DataFrame) -> pd.DataFrame:
+    """Summarize primary sites by coordinates, excluding -N<number> neighbors."""
+    records = catalog.loc[~catalog["name"].str.contains(r"-N\d+", regex=True)]
+    sites = records.groupby(["lon", "lat"], as_index=False).agg(
+        name=("name", "first"),
+        belonging=("belonging", "first"),
+        type=("type", "first"),
+        observations=("name", "size"),
+        plume_observations=("is_plume", "sum"),
+        sensors=("sensor", lambda values: tuple(sorted(values.unique()))),
+    )
+    sites["sensor_count"] = sites["sensors"].str.len()
+    return sites
