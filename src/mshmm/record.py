@@ -24,15 +24,13 @@ def make_valid_mask(rgb: np.ndarray, ch4: np.ndarray) -> np.ndarray:
     return rgb_valid & ch4_valid
 
 
-def load_record(data_root: str | Path, record: pd.Series) -> tuple[dict, dict | None]:
-    """Read six arrays, derive valid_mask, and read the plume summary.
-
-    Array shapes, stored dtypes, and missing values are preserved. Non-plume
-    records return None for the quantification summary.
-    """
+def load_arrays(
+    data_root: str | Path, record: pd.Series, names: tuple[str, ...] = ARRAY_NAMES
+) -> dict[str, np.ndarray]:
+    """Read selected arrays including RGB and CH4, and derive valid_mask."""
     relative_path = record["path"].replace("\\", "/")
     record_dir = Path(data_root) / relative_path
-    arrays = {name: np.load(record_dir / f"{name}.npy") for name in ARRAY_NAMES}
+    arrays = {name: np.load(record_dir / f"{name}.npy") for name in names}
     arrays["valid_mask"] = make_valid_mask(arrays["RGB"], arrays["CH4"])
 
     # BEGIN TEMPORARY FIX: MSHMM v0.1 EMIT RGB
@@ -43,6 +41,17 @@ def load_record(data_root: str | Path, record: pd.Series) -> tuple[dict, dict | 
         arrays["RGB"] = np.where(sentinel, rgb, rgb * 1000)
     # END TEMPORARY FIX: MSHMM v0.1 EMIT RGB
 
+    return arrays
+
+
+def load_record(data_root: str | Path, record: pd.Series) -> tuple[dict, dict | None]:
+    """Read six arrays, derive valid_mask, and read the plume summary.
+
+    Array shapes, stored dtypes, and missing values are preserved. Non-plume
+    records return None for the quantification summary.
+    """
+    arrays = load_arrays(data_root, record)
+    record_dir = Path(data_root) / record["path"].replace("\\", "/")
     summary = None
     if record["is_plume"]:
         summary = json.loads((record_dir / "sum.json").read_text(encoding="utf-8"))
