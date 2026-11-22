@@ -1,6 +1,8 @@
 # Multi-Satellite Hyperspectral Methane Monitoring (MSHMM) dataset
 
-## Description
+[Zhu Han](https://scholar.google.com/citations?user=AtmD3QUAAAAJ&hl=zh-CN&oi=sra), [Jin Yang](https://orcid.org/0009-0003-2177-7695), Jinyu Chen, Yi Liu, Weirong Chen, [Lianru Gao](https://scholar.google.com/citations?user=La-8gLMAAAAJ&hl=zh-CN&oi=sra)
+
+# 🌞 Description
 
 A real global methane (CH₄) point source observation dataset constructed from multi-satellite hyperspectral remote sensing imagery, covering 381 methane emission events (and 1305 non-emission events)  at 81 landfill, coal mine, and oil & gas field sites between 2019 and 2026. Used for cooperative intelligent detection and quantitative estimation for multi-satellite hyperspectral methane emission monitoring.
 
@@ -29,13 +31,13 @@ The total size of this dataset is about 10.5GB, comprising:
 
 ---
 
-## Download Link
+# 🔨 Download Link (Zenodo)
 
-[10.5281/zenodo.22608487](https://doi.org/10.5281/zenodo.22608487)
+The MSHMM dataset can be downloaded in [10.5281/zenodo.22608487](https://doi.org/10.5281/zenodo.22608487)
 
 ---
 
-## Data Items
+# 📝 Data Items
 
 ### Folders
 
@@ -140,3 +142,29 @@ Each row corresponds to one record in the package. Fields:
 | `length`         | str   | String representation of a list of plume segment lengths, e.g.`"[907.26, 1016.83, …]"`; parse with `ast.literal_eval` / `json` | m; plume only                                                                     |
 | `wind`           | float | GEOS-FP wind speed                                                                                                                    | m/s; plume only                                                                   |
 | `wind_direction` | float | GEOS-FP wind direction                                                                                                                | °; plume only                                                                    |
+
+# ⭐ Citation
+
+**Please kindly cite the papers if this code is useful and helpful for your research.**
+
+Zhu Han, Jin Yang, Jinyu Chen, Yi Liu, Weirong Chen, Lianru Gao. Cooperative Intelligent Detection and Quantitative Estimation: Toward multisatellite hyperspectral methane emission monitoring, IEEE Geoscience and Remote Sensing Magazine, 2026, doi: 10.1109/MGRS.2026.3736915.
+
+    @ARTICLE{10570241,
+      author={Han, Zhu and Yang, Jin and Chen, Jinyu and Liu, Yi and Chen, Weirong and Gao, Lianru},
+      journal={IEEE Geoscience and Remote Sensing Magazine}, 
+      title={Cooperative Intelligent Detection and Quantitative Estimation: Toward multisatellite hyperspectral methane emission monitoring}, 
+      year={2026},
+      pages={2-26},
+      doi={10.1109/MGRS.2026.3736915}
+    }
+
+Licensing
+---------------------
+
+Copyright (C) 2026 Zhu Han and Jin Yang
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2 of the License.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.
