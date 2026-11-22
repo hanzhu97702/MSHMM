@@ -21,13 +21,13 @@ The total size of this dataset is about 10.5GB, comprising:
 
 | Item                  | Count          |
 | --------------------- | -------------- |
-| Catalog file          | 1`db.xlsx`   |
+| Catalog file          | 1              |
 | Observation records   | 1686           |
 | Emission records      | 381            |
 | Non-emission records | 1305           |
 | Hotspots              | 81             |
 | Time range            | 2019-2026      |
-| Array files           | 10,110`.npy` |
+| Array files           | 10,110         |
 
 ---
 
