@@ -6,7 +6,7 @@
 
 A real global methane (CH₄) point source observation dataset constructed from multi-satellite hyperspectral remote sensing imagery, covering 381 methane emission events (and 1305 non-emission events)  at 81 landfill, coal mine, and oil & gas field sites between 2019 and 2026. Used for cooperative intelligent detection and quantitative estimation for multi-satellite hyperspectral methane emission monitoring.
 
-The raw hyperspectral remote sensing imagery used to construct the dataset includes Level-1 radiance products from 4 platforms: EMIT, EnMAP, PRISMA and GF-5.
+The raw hyperspectral remote sensing imagery used to construct the dataset includes Level-1 radiance products from four hyperspectral satellite platforms: EMIT, EnMAP, PRISMA and GF-5.
 
 If you need this raw data, you can obtain it through their portal website:
 
@@ -31,9 +31,9 @@ The total size of this dataset is about 10.5GB, comprising:
 
 ---
 
-# 🔨 Download Link (Zenodo)
+# 🔨 Zenodo Download Link 
 
-The MSHMM dataset can be downloaded in [10.5281/zenodo.22608487](https://doi.org/10.5281/zenodo.22608487)
+The MSHMM dataset can be downloaded in [10.5281/zenodo.22608487](https://doi.org/10.5281/zenodo.22608487).
 
 ---
 
@@ -54,7 +54,7 @@ Based on the chronological order of raw data collection, the Imagery dataset was
 
 ---
 
-## Dataset storage
+# 🔒 Dataset storage
 
 ```
 data/
